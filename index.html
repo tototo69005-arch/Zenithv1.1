@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenith Travel and Tours — Madagascar Sur Mesure</title>
+  <meta name="description" content="Agence de voyage spécialisée Madagascar. Circuits sur mesure, transport 4x4 avec chauffeur, accompagnement francophone depuis Nosy Be." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ============================================================
+       INDEX-SPECIFIC STYLES
+    ============================================================ */
+
+    /* --- HERO --- */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1800&q=80') center 55% / cover no-repeat;
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.0); }
+      to   { transform: scale(1.07); }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(13,13,26,0.82) 0%, rgba(13,13,26,0.4) 55%, rgba(13,13,26,0.6) 100%);
+    }
+    .hero-body {
+      position: relative; z-index: 2;
+      padding-top: 5rem;
+      max-width: 680px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 30px; height: 1.5px;
+      background: var(--gold);
+    }
+    .hero-h1 {
+      font-family: var(--font-title);
+      font-size: clamp(3rem, 7.5vw, 6.2rem);
+      font-weight: 900;
+      line-height: 1.03;
+      margin: 1rem 0 0.6rem;
+      animation: fadeUp 0.8s ease 0.15s both;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 2.4rem;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      animation: fadeUp 0.8s ease 0.45s both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 7rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      z-index: 2;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeUp 1s ease 0.9s both;
+    }
+    .scroll-hint-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.45));
+      animation: lineDown 2s ease-in-out infinite;
+    }
+    @keyframes lineDown {
+      0%,100% { opacity: 0.3; transform: scaleY(0.6); }
+      50%      { opacity: 1;   transform: scaleY(1); }
+    }
+    /* Stats strip */
+    .stats-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 3;
+      background: rgba(10,10,22,0.72);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat {
+      padding: 1.1rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: var(--font-title);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-l {
+      font-size: 0.63rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+      margin-top: 0.2rem;
+    }
+
+    /* --- ABOUT --- */
+    #about {
+      padding: var(--section-py) 0;
+      background: var(--darker);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .about-photos {
+      position: relative;
+      height: clamp(380px, 50vw, 540px);
+    }
+    .ap-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 72%; height: 78%;
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .ap-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 55%; height: 52%;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 4px solid var(--darker);
+    }
+    .ap-badge {
+      position: absolute;
+      top: 52%; left: 59%;
+      transform: translate(-50%, -50%);
+      width: 84px; height: 84px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--darker);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.1;
+      z-index: 2;
+      box-shadow: 0 6px 28px rgba(245,166,35,0.5);
+    }
+    .ap-badge b { font-family: var(--font-title); font-size: 1.55rem; font-weight: 700; }
+    .ap-badge span { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .about-text .eyebrow { margin-bottom: 0.9rem; }
+    .about-text .section-title { margin-bottom: 1.2rem; }
+    .about-text p {
+      font-family: var(--font-serif);
+      font-size: clamp(0.93rem, 1.5vw, 1.05rem);
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 1rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-top: 1.8rem;
+    }
+    .value-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-w);
+      border-radius: var(--r-sm);
+      transition: border-color 0.3s;
+    }
+    .value-card:hover { border-color: rgba(245,166,35,0.35); }
+    .val-icon {
+      width: 34px; height: 34px;
+      background: rgba(245,166,35,0.1);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .val-text b { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.12rem; }
+    .val-text span { font-size: 0.76rem; color: var(--gray); line-height: 1.4; }
+
+    /* --- CIRCUITS --- */
+    #circuits {
+      padding: var(--section-py) 0;
+      background: var(--dark);
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-head .eyebrow { margin-bottom: 0.7rem; }
+    .section-head .section-title { margin-bottom: 0.6rem; }
+    .circuits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+    }
+    .c-card {
+      background: var(--mid);
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border-w);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+    }
+    .c-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.45);
+      border-color: rgba(245,166,35,0.28);
+    }
+    .c-img {
+      height: 210px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .c-img img { transition: transform 0.55s ease; }
+    .c-card:hover .c-img img { transform: scale(1.07); }
+    .c-pill {
+      position: absolute;
+      top: 0.9rem; right: 0.9rem;
+      background: rgba(10,10,22,0.78);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.28em 0.8em;
+      border-radius: 50px;
+    }
+    .c-body {
+      padding: 1.4rem 1.5rem 1.7rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .c-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .c-meta span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .c-meta i { color: var(--green); font-size: 0.75rem; }
+    .c-card h3 {
+      font-family: var(--font-title);
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 600;
+      line-height: 1.28;
+      margin-bottom: 0.55rem;
+    }
+    .c-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.57);
+      line-height: 1.62;
+      flex: 1;
+      margin-bottom: 1.3rem;
+    }
+    .c-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+    .c-price .from { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .c-price .amt  { font-family: var(--font-title); font-size: 1.55rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .c-price .per  { font-size: 0.68rem; color: var(--gray); }
+
+    /* --- SERVICES --- */
+    #services {
+      padding: var(--section-py) 0;
+      background: var(--darker);
+      position: relative;
+      overflow: hidden;
+    }
+    #services::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(60,176,67,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+    }
+    .svc {
+      padding: 2rem 1.4rem 1.8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-w);
+      border-radius: var(--r);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .svc::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+    }
+    .svc:hover { transform: translateY(-5px); background: rgba(255,255,255,0.06); }
+    .svc:hover::after { transform: scaleX(1); }
+    .svc-icon {
+      width: 58px; height: 58px;
+      margin: 0 auto 1.2rem;
+      background: linear-gradient(135deg, rgba(60,176,67,0.12), rgba(245,166,35,0.12));
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      color: var(--green);
+    }
+    .svc h3 {
+      font-family: var(--font-title);
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .svc p { font-size: 0.83rem; color: rgba(255,255,255,0.52); line-height: 1.65; }
+
+    /* --- TESTIMONIALS --- */
+    #temoignages {
+      padding: var(--section-py) 0;
+      background: var(--dark);
+    }
+    .temo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+    }
+    .temo {
+      background: var(--mid);
+      border: 1px solid var(--border-w);
+      border-radius: var(--r);
+      padding: 1.8rem;
+      transition: transform 0.3s;
+    }
+    .temo:hover { transform: translateY(-5px); }
+    .temo-stars { color: var(--gold); font-size: 0.82rem; letter-spacing: 0.1em; margin-bottom: 0.9rem; }
+    .temo-quote {
+      font-size: 2.8rem;
+      color: var(--gold);
+      opacity: 0.18;
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .temo-text {
+      font-family: var(--font-serif);
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.72;
+      margin-bottom: 1.4rem;
+    }
+    .temo-author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .temo-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid var(--gold);
+    }
+    .temo-name { font-size: 0.88rem; font-weight: 600; display: block; }
+    .temo-origin { font-size: 0.74rem; color: var(--gray); }
+
+    /* --- CTA BAND --- */
+    .cta-band {
+      padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+      background: linear-gradient(135deg, #2d8a33 0%, #1f6224 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1200&q=50') center/cover no-repeat;
+      opacity: 0.1;
+    }
+    .cta-band .container { position: relative; }
+    .cta-band h2 {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .cta-band p {
+      font-family: var(--font-serif);
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      font-style: italic;
+      opacity: 0.88;
+      margin-bottom: 2rem;
+    }
+
+    /* --- CONTACT --- */
+    #contact {
+      padding: var(--section-py) 0;
+      background: var(--darker);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .contact-info .section-title { margin: 0.8rem 0 1.4rem; }
+    .ci-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+    }
+    .ci-icon {
+      width: 42px; height: 42px;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .ci-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.15rem; }
+    .ci-val { font-size: 0.95rem; }
+    .ci-val a { transition: color 0.2s; }
+    .ci-val a:hover { color: var(--gold); }
+    /* Form card */
+    .form-card {
+      background: var(--mid);
+      border: 1px solid var(--border-w);
+      border-radius: var(--r);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    .form-card h3 {
+      font-family: var(--font-title);
+      font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .form-intro { font-size: 0.83rem; color: var(--gray); margin-bottom: 1.6rem; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .f-group { margin-bottom: 0.9rem; }
+    .f-group label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.38rem;
+    }
+    .f-group input,
+    .f-group select,
+    .f-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-sm);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      padding: 0.72em 1em;
+      outline: none;
+      transition: border-color 0.22s, background 0.22s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .f-group input::placeholder,
+    .f-group textarea::placeholder { color: rgba(255,255,255,0.28); }
+    .f-group input:focus,
+    .f-group select:focus,
+    .f-group textarea:focus { border-color: var(--gold); background: rgba(255,255,255,0.07); }
+    .f-group select option { background: var(--mid); color: var(--white); }
+    .f-group textarea { resize: vertical; min-height: 100px; }
+    .f-submit { width: 100%; justify-content: center; margin-top: 0.4rem; font-size: 0.82rem; padding: 1em; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    .form-success i { font-size: 2.8rem; color: var(--green); margin-bottom: 0.8rem; }
+    .form-success h4 { font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.88rem; color: var(--gray); }
+
+    /* ============================================================
+       RESPONSIVE INDEX
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .circuits-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photos { height: 340px; }
+      .temo-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .f-row { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .circuits-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav id="nav">
+  <div class="container nav-wrap">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-star"><i class="fas fa-star"></i></div>
+      <div class="logo-words">
+        <b>Zenith</b>
+        <small>Travel and Tours</small>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#circuits">Circuits</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#temoignages">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-gold" style="flex-shrink:0">
+      <i class="fas fa-paper-plane"></i> Devis gratuit
+    </a>
+    <button class="hamburger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about">À propos</a>
+  <a href="#circuits">Circuits</a>
+  <a href="#services">Services</a>
+  <a href="#temoignages">Avis clients</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-gold" style="margin-top:1rem">Devis gratuit</a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-body">
+    <div class="hero-eyebrow"><i class="fas fa-star" style="font-size:0.6rem"></i> Agence spécialisée Madagascar</div>
+    <h1 class="hero-h1">Votre aventure<br><em>malgache,</em><br>sur mesure</h1>
+    <p class="hero-sub">De Nosy Be aux Tsingy, nous façonnons des voyages qui marquent une vie.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-gold"><i class="fas fa-paper-plane"></i> Demander un devis</a>
+      <a href="#circuits" class="btn btn-outline"><i class="fas fa-route"></i> Voir les circuits</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Découvrir</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat"><div class="stat-n">+200</div><div class="stat-l">Circuits réalisés</div></div>
+        <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Destinations</div></div>
+        <div class="stat"><div class="stat-n">4×4</div><div class="stat-l">Transport inclus</div></div>
+        <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Francophone</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photos reveal">
+        <div class="ap-main">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Chauffeur 4x4 Madagascar" loading="lazy" />
+        </div>
+        <div class="ap-accent">
+          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="Coucher de soleil Madagascar" loading="lazy" />
+        </div>
+        <div class="ap-badge"><b>10</b><span>ans d'expé&shy;rience</span></div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow reveal">Notre histoire</div>
+        <h2 class="section-title reveal d1">Nés à Nosy Be,<br>passionnés de la<br>Grande Île</h2>
+        <p class="reveal d2">Fondée par des professionnels du tourisme malgache et français, Zenith Travel and Tours accompagne les voyageurs francophones depuis plus de dix ans. Notre bureau est basé à Nosy Be, au cœur de l'archipel le plus envoûtant de l'océan Indien.</p>
+        <p class="reveal d3">Nous croyons que Madagascar mérite une découverte lente, attentive et respectueuse — loin des sentiers balisés. Chaque circuit est conçu comme une expérience unique, adaptée à vos envies, votre rythme et votre budget.</p>
+        <div class="values-grid reveal d3">
+          <div class="value-card">
+            <div class="val-icon"><i class="fas fa-leaf"></i></div>
+            <div class="val-text"><b>Tourisme responsable</b><span>Respect des communautés et de la biodiversité</span></div>
+          </div>
+          <div class="value-card">
+            <div class="val-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="val-text"><b>Sécurité garantie</b><span>Chauffeurs expérimentés, véhicules contrôlés</span></div>
+          </div>
+          <div class="value-card">
+            <div class="val-icon"><i class="fas fa-sliders"></i></div>
+            <div class="val-text"><b>100% sur mesure</b><span>Itinéraires conçus pour vous, pas pour un groupe</span></div>
+          </div>
+          <div class="value-card">
+            <div class="val-icon"><i class="fas fa-headset"></i></div>
+            <div class="val-text"><b>Assistance 24h/24</b><span>Accompagnement francophone tout au long du séjour</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CIRCUITS
+============================================================ -->
+<section id="circuits">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow reveal">Nos programmes</div>
+      <h2 class="section-title reveal d1">Circuits emblématiques</h2>
+      <p class="section-lead reveal d2">Du nord tropical au sud aride, Madagascar révèle mille visages</p>
+    </div>
+    <div class="circuits-grid">
+
+      <!-- 1. Baobabs -->
+      <div class="c-card reveal">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=700&q=80" alt="Allée des Baobabs" loading="lazy" />
+          <div class="c-pill">Bestseller</div>
+        </div>
+        <div class="c-body">
+          <div class="c-meta">
+            <span><i class="fas fa-clock"></i> 7 jours</span>
+            <span><i class="fas fa-map-pin"></i> Morondava</span>
+          </div>
+          <h3>Allée des Baobabs &amp; Morondava</h3>
+          <p>Couchers de soleil légendaires face aux plus vieux baobabs du monde, villages betsimisaraka et baignades dans le canal des Pangalanes.</p>
+          <div class="c-foot">
+            <div class="c-price">
+              <div class="from">À partir de</div>
+              <div class="amt">890 €</div>
+              <div class="per">/personne</div>
+            </div>
+            <a href="circuit-baobabs.html" class="btn btn-gold">Voir le circuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Nosy Be -->
+      <div class="c-card reveal d1">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=700&q=80" alt="Nosy Be plage" loading="lazy" />
+          <div class="c-pill">Plage &amp; Nature</div>
+        </div>
+        <div class="c-body">
+          <div class="c-meta">
+            <span><i class="fas fa-clock"></i> 10 jours</span>
+            <span><i class="fas fa-map-pin"></i> Nosy Be</span>
+          </div>
+          <h3>Nosy Be &amp; Archipel des Îles</h3>
+          <p>Plongée sur les récifs de Nosy Tanikely, excursion à Nosy Komba, plages de sable blanc et rhum arrangé local.</p>
+          <div class="c-foot">
+            <div class="c-price">
+              <div class="from">À partir de</div>
+              <div class="amt">1 150 €</div>
+              <div class="per">/personne</div>
+            </div>
+            <a href="circuit-nosybe.html" class="btn btn-gold">Voir le circuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Tsingy -->
+      <div class="c-card reveal d2">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=700&q=80" alt="Tsingy de Bemaraha" loading="lazy" />
+          <div class="c-pill">Insolite</div>
+        </div>
+        <div class="c-body">
+          <div class="c-meta">
+            <span><i class="fas fa-clock"></i> 12 jours</span>
+            <span><i class="fas fa-map-pin"></i> Bemaraha</span>
+          </div>
+          <h3>Tsingy de Bemaraha</h3>
+          <p>Randonnée en via ferrata dans la forêt de calcaire classée UNESCO. Nuits en lodge de brousse, lémuriens au petit matin.</p>
+          <div class="c-foot">
+            <div class="c-price">
+              <div class="from">À partir de</div>
+              <div class="amt">1 380 €</div>
+              <div class="per">/personne</div>
+            </div>
+            <a href="circuit-tsingy.html" class="btn btn-gold">Voir le circuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Sud -->
+      <div class="c-card reveal">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&q=80" alt="Grand Sud Madagascar" loading="lazy" />
+          <div class="c-pill">Aventure</div>
+        </div>
+        <div class="c-body">
+          <div class="c-meta">
+            <span><i class="fas fa-clock"></i> 14 jours</span>
+            <span><i class="fas fa-map-pin"></i> Toliara</span>
+          </div>
+          <h3>Grand Sud Sauvage</h3>
+          <p>Spiny forest, dunes de l'Isalo, pirogues Vezo sur le lagon de Mangily et rencontres avec les éleveurs de zébus du plateau Mahafaly.</p>
+          <div class="c-foot">
+            <div class="c-price">
+              <div class="from">À partir de</div>
+              <div class="amt">1 490 €</div>
+              <div class="per">/personne</div>
+            </div>
+            <a href="circuit-sud.html" class="btn btn-gold">Voir le circuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Highlands -->
+      <div class="c-card reveal d1">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80" alt="Hauts Plateaux Madagascar" loading="lazy" />
+          <div class="c-pill">Culture</div>
+        </div>
+        <div class="c-body">
+          <div class="c-meta">
+            <span><i class="fas fa-clock"></i> 9 jours</span>
+            <span><i class="fas fa-map-pin"></i> Hauts Plateaux</span>
+          </div>
+          <h3>Circuit Highlands &amp; Antananarivo</h3>
+          <p>Marchés colorés d'Ambatolampy, rizières en terrasses d'Ambositra, artisanat betsileo et palais de la reine Ranavalona.</p>
+          <div class="c-foot">
+            <div class="c-price">
+              <div class="from">À partir de</div>
+              <div class="amt">760 €</div>
+              <div class="per">/personne</div>
+            </div>
+            <a href="circuit-highlands.html" class="btn btn-gold">Voir le circuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Grande Île -->
+      <div class="c-card reveal d2">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=80" alt="Tour Grande Île Madagascar" loading="lazy" />
+          <div class="c-pill">Intégral</div>
+        </div>
+        <div class="c-body">
+          <div class="c-meta">
+            <span><i class="fas fa-clock"></i> 21 jours</span>
+            <span><i class="fas fa-map-pin"></i> Tour de l'île</span>
+          </div>
+          <h3>La Grande Île Intégrale</h3>
+          <p>Le circuit ultime : traversée Nord-Sud de la RN7, toutes les merveilles en une seule épopée, pour les amoureux inconditionnels.</p>
+          <div class="c-foot">
+            <div class="c-price">
+              <div class="from">À partir de</div>
+              <div class="amt">2 450 €</div>
+              <div class="per">/personne</div>
+            </div>
+            <a href="circuit-grande-ile.html" class="btn btn-gold">Voir le circuit</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow reveal">Ce qui est inclus</div>
+      <h2 class="section-title reveal d1">Tout est prévu pour vous</h2>
+      <p class="section-lead reveal d2">Un accompagnement complet, de l'aéroport jusqu'au dernier coucher de soleil</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal">
+        <div class="svc-icon"><i class="fas fa-truck-monster"></i></div>
+        <h3>Transport 4×4 avec chauffeur</h3>
+        <p>Véhicules Toyota Land Cruiser récents, chauffeurs bilingues certifiés. Toutes les pistes de Madagascar accessibles en toute sécurité.</p>
+      </div>
+      <div class="svc reveal d1">
+        <div class="svc-icon"><i class="fas fa-bed"></i></div>
+        <h3>Hébergements sélectionnés</h3>
+        <p>Lodges de charme, écolodges en brousse, hôtels de qualité — pré-réservés et payables directement sur place à chaque étape.</p>
+      </div>
+      <div class="svc reveal d2">
+        <div class="svc-icon"><i class="fas fa-language"></i></div>
+        <h3>Accompagnement francophone</h3>
+        <p>Guide francophone disponible 24h/24 pour traduire, conseiller et partager la richesse culturelle malgache en profondeur.</p>
+      </div>
+      <div class="svc reveal d3">
+        <div class="svc-icon"><i class="fas fa-route"></i></div>
+        <h3>Itinéraires personnalisés</h3>
+        <p>Chaque voyage est unique. Durée, rythme, activités et budget : tout est négocié avec vous avant le départ, sans frais cachés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="temoignages">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow reveal">Ils sont revenus ravis</div>
+      <h2 class="section-title reveal d1">Ce que disent nos voyageurs</h2>
+    </div>
+    <div class="temo-grid">
+      <div class="temo reveal">
+        <div class="temo-stars">★★★★★</div>
+        <div class="temo-quote">"</div>
+        <p class="temo-text">Dix jours sur la RN7 avec Zenith, et je suis rentré transformé. Le chauffeur Faly connaissait chaque virage, chaque village. Les lodges étaient simples mais parfaits. Madagascar est un choc extraordinaire et l'agence a tout rendu fluide.</p>
+        <div class="temo-author">
+          <div class="temo-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Marc L." /></div>
+          <div><span class="temo-name">Marc Léonard</span><span class="temo-origin">Lyon — Circuit RN7, 10 jours</span></div>
+        </div>
+      </div>
+      <div class="temo reveal d1">
+        <div class="temo-stars">★★★★★</div>
+        <div class="temo-quote">"</div>
+        <p class="temo-text">On voulait quelque chose d'authentique pour nos 40 ans de mariage. Zenith a conçu un circuit Nosy Be en tenant compte de nos contraintes. Service impeccable, réactivité parfaite, souvenirs impérissables.</p>
+        <div class="temo-author">
+          <div class="temo-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Chantal M." /></div>
+          <div><span class="temo-name">Chantal &amp; Pierre Mercier</span><span class="temo-origin">Bordeaux — Nosy Be, 12 jours</span></div>
+        </div>
+      </div>
+      <div class="temo reveal d2">
+        <div class="temo-stars">★★★★★</div>
+        <div class="temo-quote">"</div>
+        <p class="temo-text">Tsingy de Bemaraha avec Zenith : une expérience hors du temps. L'organisation était parfaite malgré les contraintes logistiques de cette région reculée. Je recommande sans hésiter à tous ceux qui veulent vraiment sortir des sentiers battus.</p>
+        <div class="temo-author">
+          <div class="temo-avatar"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt="Sophie B." /></div>
+          <div><span class="temo-name">Sophie Blanchard</span><span class="temo-origin">Paris — Tsingy, 12 jours</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+<div class="cta-band">
+  <div class="container">
+    <h2 class="reveal">Prêt à vivre votre Madagascar ?</h2>
+    <p class="reveal d1">Contactez-nous — le devis est gratuit et sans engagement.</p>
+    <a href="#contact" class="btn btn-gold reveal d2"><i class="fas fa-paper-plane"></i> Demander mon devis</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow reveal">Contactez-nous</div>
+        <h2 class="section-title reveal d1">Construisons<br>votre voyage</h2>
+        <p class="section-lead reveal d2" style="margin-bottom:2rem">Réponse garantie sous 24h — devis gratuit &amp; sans engagement</p>
+        <div class="ci-row reveal d1">
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div><div class="ci-label">Téléphone / WhatsApp</div><div class="ci-val"><a href="tel:+33744980342">+33 7 44 98 03 42</a></div></div>
+        </div>
+        <div class="ci-row reveal d2">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:contact@zenith-madagascar.com">contact@zenith-madagascar.com</a></div></div>
+        </div>
+        <div class="ci-row reveal d3">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="ci-label">Bureau</div><div class="ci-val">Nosy Be, Madagascar</div></div>
+        </div>
+        <div class="ci-row reveal d4">
+          <div class="ci-icon"><i class="fas fa-clock"></i></div>
+          <div><div class="ci-label">Disponibilité</div><div class="ci-val">Lun–Sam, 7h–20h (UTC+3)</div></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal d2">
+        <h3>Demande de devis gratuit</h3>
+        <p class="form-intro">Remplissez ce formulaire et nous vous répondons sous 24h avec une proposition personnalisée.</p>
+        <div id="formBody">
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="devisForm">
+            <div class="f-row">
+              <div class="f-group"><label for="nom">Nom complet *</label><input type="text" id="nom" name="nom" placeholder="Jean Dupont" required /></div>
+              <div class="f-group"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="jean@exemple.fr" required /></div>
+            </div>
+            <div class="f-row">
+              <div class="f-group"><label for="tel">Téléphone</label><input type="tel" id="tel" name="tel" placeholder="+33 6 12 34 56 78" /></div>
+              <div class="f-group"><label for="voyageurs">Nombre de voyageurs *</label>
+                <select id="voyageurs" name="voyageurs" required>
+                  <option value="">Sélectionner…</option>
+                  <option>1 personne</option><option>2 personnes</option>
+                  <option>3–4 personnes</option><option>5–8 personnes</option><option>Groupe 9+</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-row">
+              <div class="f-group"><label for="depart">Date de départ souhaitée</label><input type="date" id="depart" name="depart" /></div>
+              <div class="f-group"><label for="duree">Durée envisagée</label>
+                <select id="duree" name="duree">
+                  <option value="">Sélectionner…</option>
+                  <option>Moins de 7 jours</option><option>7–10 jours</option>
+                  <option>11–14 jours</option><option>15–21 jours</option><option>Plus de 21 jours</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-group"><label for="circuit">Circuit d'intérêt</label>
+              <select id="circuit" name="circuit">
+                <option value="">Sélectionner un circuit…</option>
+                <option>Allée des Baobabs &amp; Morondava</option>
+                <option>Nosy Be &amp; Archipel</option>
+                <option>Tsingy de Bemaraha</option>
+                <option>Grand Sud Sauvage</option>
+                <option>Circuit Highlands</option>
+                <option>La Grande Île Intégrale</option>
+                <option>Circuit sur mesure</option>
+              </select>
+            </div>
+            <div class="f-group"><label for="message">Message / précisions</label><textarea id="message" name="message" placeholder="Décrivez vos envies, contraintes, budget indicatif…"></textarea></div>
+            <button type="submit" class="btn btn-green f-submit"><i class="fas fa-paper-plane"></i> Envoyer ma demande</button>
+          </form>
+        </div>
+        <div class="form-success" id="formOk">
+          <i class="fas fa-circle-check"></i>
+          <h4>Demande envoyée !</h4>
+          <p>Merci ! Nous vous répondrons sous 24h avec votre proposition personnalisée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-star"><i class="fas fa-star"></i></div>
+          <div class="logo-words"><b>Zenith</b><small>Travel and Tours</small></div>
+        </a>
+        <p>Agence spécialisée Madagascar, basée à Nosy Be. Circuits sur mesure, transport 4×4, accompagnement francophone depuis 2014.</p>
+        <div class="social-row">
+          <a href="#" class="soc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/33744980342" class="soc" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Circuits</h5>
+        <ul>
+          <li><a href="circuit-baobabs.html">Allée des Baobabs</a></li>
+          <li><a href="circuit-nosybe.html">Nosy Be &amp; Archipel</a></li>
+          <li><a href="circuit-tsingy.html">Tsingy de Bemaraha</a></li>
+          <li><a href="circuit-sud.html">Grand Sud Sauvage</a></li>
+          <li><a href="circuit-highlands.html">Circuit Highlands</a></li>
+          <li><a href="circuit-grande-ile.html">La Grande Île</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Informations</h5>
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#temoignages">Avis clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h5>Restez inspiré</h5>
+        <p>Recevez nos idées d'itinéraires, conseils terrain et offres exclusives.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="votre@email.fr" aria-label="Email newsletter" />
+          <button type="button"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <p style="font-size:0.7rem;color:var(--gray);margin-top:0.5rem"><i class="fas fa-lock" style="font-size:0.65rem"></i> Aucun spam — désabonnement en 1 clic</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <div class="container">
+      <p>© 2026 Zenith Travel and Tours — Nosy Be, Madagascar. Tous droits réservés.</p>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  /* Formspree AJAX submit */
+  const form = document.getElementById('devisForm');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi…';
+      try {
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (resp.ok) {
+          document.getElementById('formBody').style.display = 'none';
+          document.getElementById('formOk').style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma demande';
+          alert('Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler.');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma demande';
+        alert('Erreur réseau. Veuillez réessayer.');
+      }
+    });
+  }
+</script>
+</body>
+</html>

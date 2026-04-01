@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allée des Baobabs &amp; Morondava — Zenith Travel and Tours</title>
+  <meta name="description" content="7 jours de découverte de l'Allée des Baobabs et Morondava avec Zenith Travel and Tours. Circuit sur mesure, 4x4, guide francophone." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ---- Circuit page shared ---- */
+    .c-hero {
+      position: relative;
+      height: clamp(420px, 65vw, 640px);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .c-hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+    .c-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,22,0.92) 0%, rgba(10,10,22,0.35) 55%, rgba(10,10,22,0.2) 100%);
+    }
+    .c-hero-body {
+      position: relative; z-index: 2;
+      padding: 0 0 3rem;
+      width: 100%;
+    }
+    .c-hero-body .eyebrow { margin-bottom: 0.6rem; }
+    .c-hero-body h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 1.2rem;
+    }
+    .c-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50px;
+      font-size: 0.77rem;
+      font-weight: 500;
+      padding: 0.35em 0.95em;
+      color: var(--white);
+    }
+    .chip i { color: var(--gold); }
+
+    /* Layout */
+    .c-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2.5rem;
+      padding: 4rem 0 5rem;
+      align-items: start;
+    }
+    /* Left content */
+    .c-main h2 {
+      font-family: var(--font-title);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 700;
+      margin: 2.4rem 0 1rem;
+      color: var(--white);
+    }
+    .c-main h2:first-child { margin-top: 0; }
+    .c-main p {
+      font-family: var(--font-serif);
+      font-size: clamp(0.93rem, 1.5vw, 1.04rem);
+      color: rgba(255,255,255,0.72);
+      line-height: 1.78;
+      margin-bottom: 1rem;
+    }
+    /* Photo gallery strip */
+    .c-gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 0.7rem;
+      margin: 2rem 0;
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .c-gallery .g0 { grid-row: 1 / 3; }
+    .c-gallery div { overflow: hidden; }
+    .c-gallery div img { transition: transform 0.5s ease; }
+    .c-gallery div:hover img { transform: scale(1.06); }
+    /* Itinerary */
+    .itinerary { margin: 0.5rem 0; }
+    .day {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border-w);
+    }
+    .day:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .day-num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(245,166,35,0.12);
+      border: 1.5px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .day-content b {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .day-content span {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.55;
+    }
+    /* Included/excluded */
+    .incl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      margin: 0.5rem 0;
+    }
+    .incl-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-w);
+      border-radius: var(--r-sm);
+      padding: 1.2rem;
+    }
+    .incl-box h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .incl-box.yes h4 { color: var(--green); }
+    .incl-box.no  h4 { color: #e05555; }
+    .incl-box li {
+      list-style: none;
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.68);
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .incl-box li i { font-size: 0.75rem; flex-shrink: 0; margin-top: 0.2rem; }
+    .incl-box.yes li i { color: var(--green); }
+    .incl-box.no  li i { color: #e05555; }
+
+    /* Sticky sidebar */
+    .c-sidebar {
+      position: sticky;
+      top: 90px;
+    }
+    .price-card {
+      background: var(--mid);
+      border: 1px solid var(--border-w);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .price-card-top {
+      background: linear-gradient(135deg, var(--green), #1f6a24);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .price-card-top .from { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
+    .price-card-top .big {
+      font-family: var(--font-title);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 0.2rem 0 0.1rem;
+    }
+    .price-card-top .per-p { font-size: 0.78rem; opacity: 0.8; }
+    .price-card-body { padding: 1.4rem; }
+    .pcb-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border-w);
+      font-size: 0.85rem;
+    }
+    .pcb-row:last-of-type { border-bottom: none; }
+    .pcb-row span:first-child { color: var(--gray); }
+    .pcb-row span:last-child { font-weight: 600; }
+    .price-card-body .btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 1.1rem;
+    }
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+      width: 100%;
+      padding: 0.8em;
+      margin-top: 0.6rem;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s;
+      text-decoration: none;
+    }
+    .whatsapp-btn:hover { background: #1db954; transform: translateY(-2px); }
+    .sidebar-note { font-size: 0.73rem; color: var(--gray); text-align: center; margin-top: 0.8rem; line-height: 1.5; }
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 1rem 0;
+      font-size: 0.78rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--gray); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb i { font-size: 0.6rem; }
+    /* Back nav */
+    .back-nav {
+      position: absolute;
+      top: calc(var(--nav-h, 70px) + 1.2rem);
+      left: 0; right: 0;
+      z-index: 5;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.77rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      background: rgba(10,10,22,0.55);
+      backdrop-filter: blur(8px);
+      padding: 0.5em 1em;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.22s;
+    }
+    .back-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 900px) {
+      .c-layout { grid-template-columns: 1fr; }
+      .c-sidebar { position: static; }
+      .c-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; }
+      .c-gallery .g0 { grid-row: auto; grid-column: 1 / 3; }
+      .incl-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .c-gallery { grid-template-columns: 1fr; grid-template-rows: unset; }
+      .c-gallery div { height: 200px; }
+      .c-gallery .g0 { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-wrap">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-star"><i class="fas fa-star"></i></div>
+      <div class="logo-words"><b>Zenith</b><small>Travel and Tours</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">À propos</a></li>
+      <li><a href="index.html#circuits">Circuits</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#temoignages">Avis</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn btn-gold" style="flex-shrink:0"><i class="fas fa-paper-plane"></i> Devis gratuit</a>
+    <button class="hamburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#about">À propos</a>
+  <a href="index.html#circuits">Circuits</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#temoignages">Avis</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#contact" class="btn btn-gold" style="margin-top:1rem">Devis gratuit</a>
+</div>
+
+<!-- HERO -->
+<section class="c-hero">
+  <div class="c-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=1800&q=80')"></div>
+  <div class="c-hero-overlay"></div>
+  <div class="back-nav"><div class="container"><a href="index.html#circuits" class="back-btn"><i class="fas fa-arrow-left"></i> Tous les circuits</a></div></div>
+  <div class="container c-hero-body">
+    <div class="eyebrow"><i class="fas fa-star" style="font-size:0.6rem"></i> Bestseller</div>
+    <h1>Allée des Baobabs<br>&amp; Morondava</h1>
+    <div class="c-chips">
+      <div class="chip"><i class="fas fa-clock"></i> 7 jours / 6 nuits</div>
+      <div class="chip"><i class="fas fa-map-pin"></i> Morondava, Belo-sur-Tsiribihina</div>
+      <div class="chip"><i class="fas fa-truck-monster"></i> 4×4 inclus</div>
+      <div class="chip"><i class="fas fa-leaf"></i> Tourisme responsable</div>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div style="background:var(--darker); border-bottom:1px solid var(--border-w)">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="index.html#circuits">Circuits</a>
+      <i class="fas fa-chevron-right"></i>
+      <span style="color:var(--white)">Allée des Baobabs &amp; Morondava</span>
+    </nav>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div style="background:var(--dark)">
+  <div class="container">
+    <div class="c-layout">
+
+      <!-- LEFT -->
+      <div class="c-main">
+
+        <h2>Un paysage qui suspend le souffle</h2>
+        <p>À quelques kilomètres au nord de Morondava, une route de latérite s'ouvre sur l'un des spectacles naturels les plus envoûtants de la planète : l'Allée des Baobabs. Des dizaines d'<em>Adansonia grandidieri</em> — certains vieux de plus de huit siècles — dressent leurs colonnes de 25 mètres vers un ciel incandescent. Au coucher du soleil, la lumière rasante transforme chaque tronc en sculpture d'or et de cuivre.</p>
+        <p>Ce circuit de 7 jours vous emmène bien au-delà des photos iconiques. Il plonge dans la vie des communautés Vezo et Sakalava, remonte le Tsiribihina en pirogue motorisée, et explore les mangroves et plages sauvages du canal des Pangalanes.</p>
+
+        <!-- Gallery -->
+        <div class="c-gallery">
+          <div class="g0"><img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800&q=80" alt="Allée des Baobabs coucher de soleil" loading="lazy" /></div>
+          <div><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=500&q=80" alt="Pirogue sur le Tsiribihina" loading="lazy" /></div>
+          <div><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80" alt="Village malgache" loading="lazy" /></div>
+          <div><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80" alt="Piste Madagascar 4x4" loading="lazy" /></div>
+          <div><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80" alt="Paysage latérite" loading="lazy" /></div>
+        </div>
+
+        <h2>Programme jour par jour</h2>
+        <div class="itinerary">
+          <div class="day">
+            <div class="day-num">J1</div>
+            <div class="day-content"><b>Antananarivo → Morondava (vol intérieur)</b><span>Accueil à l'aéroport par votre chauffeur-guide. Installation à l'hôtel, promenade au marché de Morondava. Dîner de bienvenue en bord de mer.</span></div>
+          </div>
+          <div class="day">
+            <div class="day-num">J2</div>
+            <div class="day-content"><b>Allée des Baobabs — lever &amp; coucher de soleil</b><span>Départ à l'aube pour les premiers rayons sur les baobabs. Retour à l'hôtel pour le petit-déjeuner. L'après-midi, visite du village de Marofandilia. Coucher de soleil inoubliable sur l'Allée.</span></div>
+          </div>
+          <div class="day">
+            <div class="day-num">J3</div>
+            <div class="day-content"><b>Remontée du Tsiribihina en pirogue</b><span>Départ en pirogue motorisée depuis Belo-sur-Tsiribihina. Observation des oiseaux, des caïmans et des singes sur les berges. Nuit chez l'habitant ou en bivouac sous les étoiles.</span></div>
+          </div>
+          <div class="day">
+            <div class="day-num">J4</div>
+            <div class="day-content"><b>Navigation fluviale — Tsiribihina (suite)</b><span>Deuxième journée de navigation. Baignade dans les rapides, rencontres avec les communautés de pêcheurs Vezo. Arrivée à Miandrivazo en soirée.</span></div>
+          </div>
+          <div class="day">
+            <div class="day-num">J5</div>
+            <div class="day-content"><b>Retour à Morondava — Baobabs Amoureux</b><span>Route de retour avec arrêt aux "Baobabs Amoureux", deux arbres enlacés depuis des siècles. Temps libre à Morondava, marché artisanal, plage.</span></div>
+          </div>
+          <div class="day">
+            <div class="day-num">J6</div>
+            <div class="day-content"><b>Mangroves &amp; côte sauvage</b><span>Excursion en bateau dans les mangroves. Snorkeling dans les eaux turquoise. Dîner de fruits de mer au coucher de soleil — repas de clôture du circuit.</span></div>
+          </div>
+          <div class="day">
+            <div class="day-num">J7</div>
+            <div class="day-content"><b>Morondava → Antananarivo (vol retour)</b><span>Dernier matin à Morondava. Transfert à l'aéroport pour votre vol retour vers Tana et votre vol international.</span></div>
+          </div>
+        </div>
+
+        <h2>Ce qui est inclus</h2>
+        <div class="incl-grid">
+          <div class="incl-box yes">
+            <h4><i class="fas fa-check"></i> Inclus</h4>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Transport 4×4 avec chauffeur francophone</li>
+              <li><i class="fas fa-check-circle"></i> Vol intérieur Tana ↔ Morondava</li>
+              <li><i class="fas fa-check-circle"></i> 6 nuits en hébergement sélectionné</li>
+              <li><i class="fas fa-check-circle"></i> Pirogue motorisée (2 jours)</li>
+              <li><i class="fas fa-check-circle"></i> Tous les transferts</li>
+              <li><i class="fas fa-check-circle"></i> Droits d'entrée (sites classés)</li>
+              <li><i class="fas fa-check-circle"></i> Guide francophone terrain</li>
+              <li><i class="fas fa-check-circle"></i> Assistance 24h/24</li>
+            </ul>
+          </div>
+          <div class="incl-box no">
+            <h4><i class="fas fa-times"></i> Non inclus</h4>
+            <ul>
+              <li><i class="fas fa-times-circle"></i> Vol international</li>
+              <li><i class="fas fa-times-circle"></i> Visa d'entrée à Madagascar</li>
+              <li><i class="fas fa-times-circle"></i> Repas (sauf indication)</li>
+              <li><i class="fas fa-times-circle"></i> Assurance voyage</li>
+              <li><i class="fas fa-times-circle"></i> Dépenses personnelles</li>
+              <li><i class="fas fa-times-circle"></i> Pourboires (facultatifs)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="c-sidebar">
+        <div class="price-card">
+          <div class="price-card-top">
+            <div class="from">À partir de</div>
+            <div class="big">890 €</div>
+            <div class="per-p">par personne · 7 jours</div>
+          </div>
+          <div class="price-card-body">
+            <div class="pcb-row"><span>Durée</span><span>7 jours / 6 nuits</span></div>
+            <div class="pcb-row"><span>Difficulté</span><span>Modérée</span></div>
+            <div class="pcb-row"><span>Groupe max.</span><span>8 personnes</span></div>
+            <div class="pcb-row"><span>Meilleure période</span><span>Avr – Nov</span></div>
+            <div class="pcb-row"><span>Transport</span><span>4×4 + pirogue</span></div>
+            <a href="index.html#contact" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:1.2rem"><i class="fas fa-paper-plane"></i> Demander un devis</a>
+            <a href="https://wa.me/33744980342?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20circuit%20All%C3%A9e%20des%20Baobabs" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a>
+            <p class="sidebar-note">Devis gratuit · Sans engagement<br>Réponse sous 24h</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- OTHER CIRCUITS -->
+<div style="background:var(--darker); padding:4rem 0">
+  <div class="container">
+    <div class="eyebrow" style="display:block;text-align:center;margin-bottom:0.6rem">Découvrir aussi</div>
+    <h2 style="font-family:var(--font-title);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;text-align:center;margin-bottom:2rem">D'autres circuits Madagascar</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+      <a href="circuit-nosybe.html" class="btn btn-dark"><i class="fas fa-umbrella-beach"></i> Nosy Be &amp; Archipel</a>
+      <a href="circuit-tsingy.html" class="btn btn-dark"><i class="fas fa-mountain"></i> Tsingy de Bemaraha</a>
+      <a href="circuit-sud.html" class="btn btn-dark"><i class="fas fa-sun"></i> Grand Sud Sauvage</a>
+      <a href="circuit-highlands.html" class="btn btn-dark"><i class="fas fa-landmark"></i> Highlands</a>
+      <a href="circuit-grande-ile.html" class="btn btn-dark"><i class="fas fa-globe-africa"></i> Grande Île Intégrale</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><div class="logo-star"><i class="fas fa-star"></i></div><div class="logo-words"><b>Zenith</b><small>Travel and Tours</small></div></a>
+        <p>Agence spécialisée Madagascar, basée à Nosy Be. Circuits sur mesure, transport 4×4, accompagnement francophone depuis 2014.</p>
+        <div class="social-row">
+          <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/33744980342" class="soc"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc"><i class="fab fa-tripadvisor"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Circuits</h5>
+        <ul>
+          <li><a href="circuit-baobabs.html">Allée des Baobabs</a></li>
+          <li><a href="circuit-nosybe.html">Nosy Be &amp; Archipel</a></li>
+          <li><a href="circuit-tsingy.html">Tsingy de Bemaraha</a></li>
+          <li><a href="circuit-sud.html">Grand Sud Sauvage</a></li>
+          <li><a href="circuit-highlands.html">Circuit Highlands</a></li>
+          <li><a href="circuit-grande-ile.html">La Grande Île</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Informations</h5>
+        <ul>
+          <li><a href="index.html#about">À propos</a></li>
+          <li><a href="index.html#services">Nos services</a></li>
+          <li><a href="index.html#temoignages">Avis clients</a></li>
+          <li><a href="index.html#contact">Contact &amp; Devis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h5>Restez inspiré</h5>
+        <p>Recevez nos idées d'itinéraires et offres exclusives.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="votre@email.fr" aria-label="Email newsletter" />
+          <button type="button"><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <div class="container">
+      <p>© 2026 Zenith Travel and Tours — Nosy Be, Madagascar.</p>
+      <div class="footer-legal"><a href="#">Mentions légales</a><a href="#">CGV</a><a href="#">Confidentialité</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
